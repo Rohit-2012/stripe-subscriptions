@@ -21,9 +21,6 @@ export const Hero = () => {
 							</span>{" "}
 						</h2>
 					</main>
-					{/* <a href=''>
-						<img src='https://made-with.prisma.io/dark.svg' width={220} height={130} alt='' />
-					</a> */}
 
 					<p className='text-xl text-muted-foreground md:w-10/12 mx-auto lg:mx-0 text-balance'>
 						Stripe subscriptions are intimidating, but they don't have to be. Let's prove it.
@@ -34,7 +31,7 @@ export const Hero = () => {
 
 						<a
 							rel='noreferrer noopener'
-							href='https://github.com/leoMirandaa/shadcn-landing-page.git'
+							href='https://github.com'
 							target='_blank'
 							className={`w-full md:w-1/3 ${buttonVariants({
 								variant: "outline",
@@ -46,9 +43,7 @@ export const Hero = () => {
 					</div>
 				</div>
 
-				{/* Hero cards sections */}
 				<div className='z-10'>
-					{/* <HeroCards /> */}
 					<Image
 						src='/hero.png'
 						width={986}
@@ -57,9 +52,6 @@ export const Hero = () => {
 						className='rounded-md select-none pointer-events-none'
 					/>
 				</div>
-
-				{/* Shadow effect */}
-				<div className='shadow'></div>
 			</section>
 		</div>
 	);
