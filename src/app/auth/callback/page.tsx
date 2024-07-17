@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
 import {checkAuthStatus} from './actions'
+import { useEffect } from "react";
 
 const AuthCallbackPage = () => {
     const router = useRouter()
@@ -12,6 +13,17 @@ const AuthCallbackPage = () => {
         queryKey: ["checkAuthStatus"],
         queryFn: async () => await checkAuthStatus(),
     })
+
+    useEffect(() => {
+        const stripePaymentLink = localStorage.getItem("stripePaymentLink")
+        if (data?.success && stripePaymentLink && user?.email) {
+            localStorage.removeItem("stripePaymentLink")
+            router.push(stripePaymentLink + `?prefilled_email=${user.email}`)
+        } else if (data?.success === false) {
+            router.push("/")
+        }
+
+    }, [router, user, data])
 
     if(data?.success) router.push("/")
 
